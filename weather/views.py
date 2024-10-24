@@ -2,12 +2,19 @@ from django.shortcuts import render
 import requests, environ
 from .models import City
 from .forms import CityForm
+import os
 
 env = environ.Env()
 
 environ.Env.read_env()
 
-API_KEY = env("API_KEY")
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+API_KEY = os.getenv("API_KEY")
+
 
 
 # Create your views here.
